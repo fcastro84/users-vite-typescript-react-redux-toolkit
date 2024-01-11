@@ -5,5 +5,6 @@
 ```
 
 ```
+- yarn add sonner
 
 

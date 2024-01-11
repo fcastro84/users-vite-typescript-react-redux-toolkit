@@ -46,7 +46,7 @@ module.exports = {
 
 - [tremor](https://www.tremor.so/docs/getting-started/installation)
 - [tailwindcss](https://tailwindcss.com/docs/installation)
-- [react-toolkit](https://redux-toolkit.js.org/introduction/getting-started)
+- [redux-toolkit](https://redux-toolkit.js.org/introduction/getting-started)
 - [react-redux](https://es.redux.js.org/docs/introduccion/)
 - [sonner](https://sonner.emilkowal.ski/)
 

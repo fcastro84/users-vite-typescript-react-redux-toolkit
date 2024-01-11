@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { User, UserId, UserState } from "../../types.d";
-import { UserState } from '../../types';
+
 
 const DefaultUsers: UserState[] = [
     {

@@ -1,21 +1,21 @@
-import { Middleware, PayloadAction, configureStore } from '@reduxjs/toolkit';
+import { Middleware, configureStore } from '@reduxjs/toolkit';
 import usersReducer, { rollBackUser } from "./slices/usersSlice"
 import { toast } from "sonner";
-import { User, UserId } from '../types.d';
+import { UserId, UserState } from '../types.d';
 
 const persistanceLocalStorageMiddleware: Middleware = (store) => (next) => (action) => {
    next(action) 
    localStorage.setItem("__redux_state__", JSON.stringify(store.getState()))
 }  
 
-const syncWithDatabaseMiddleware: Middleware = store => next => (action: PayloadAction<UserId | User>) => {
-   const { type , payload } = action
+const syncWithDatabaseMiddleware: Middleware = store => next => (action) => {
+   const { type , payload } = action as {type: string, payload: UserId}
    const prevState = store.getState()
 
    next(action)
    if( type === 'users/deleteUserById'){
       const userIdToRemove = payload
-      const userToRemove = prevState.users.find(user => user.id === payload)
+      const userToRemove = prevState.users.find((user: UserState) => user.id === payload)
 
       fetch(`https://jsonplaceholder.typicode.com/users/${userIdToRemove}`, {
          method: 'DELETE'

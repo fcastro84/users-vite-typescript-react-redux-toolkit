@@ -10,7 +10,7 @@ function App() {
     <>
       <ListOfUsers />
       <CreateNewUsers />
-      <Toaster richColors />
+      <Toaster richColors closeButton />
     </>
   )
 }

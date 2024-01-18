@@ -1,5 +1,5 @@
-import { addNewUser, deleteUserById } from "../store/slices/usersSlice"
-import { User, UserId } from "../types.d"
+import { addNewUser, deleteUserById, updateUser } from "../store/slices/usersSlice"
+import { User, UserId, UserState } from "../types.d"
 import { useAppDispatch } from "./store"
 
 const useUsersActions = () => {
@@ -13,9 +13,14 @@ const useUsersActions = () => {
         dispatch(addNewUser(user))
     }
 
+    const editUser = ( id: UserId, user: UserState) => {
+        dispatch(updateUser({id, user}))
+    }
+
     return {
         removeUserById,
-        addUser
+        addUser,
+        editUser
     }
 }
 

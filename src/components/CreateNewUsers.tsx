@@ -1,4 +1,4 @@
-import { Card, Text, TextInput, Button, Badge } from "@tremor/react";
+import { Card, Text, TextInput, Button, Badge, Flex, Divider } from "@tremor/react";
 import { FormEvent, useState } from "react";
 import useUsersActions from "../hooks/useUsersAction";
 
@@ -26,20 +26,23 @@ const CreateNewUsers = () => {
     }
   return (
     <Card className="max-w-sm mx-auto mt-4" decoration="top" decorationColor="indigo">
-        <Text>Create New User</Text>
-        <form onSubmit={handleSubmit} className="flex flex-col space-y-4 mt-3">
-            <TextInput placeholder="Enter your name" name="name" />
-            <TextInput placeholder="Enter your email" name="email" />
-            <TextInput placeholder="Enter your github" name="github" />
-            <div>
-               <Button type="submit" variant="primary">Crear User</Button> 
-                <span className="ml-3">
-                    { result === 'ok' && <Badge color='green' >Guardado correctamente</Badge> }
-                    { result === 'ko' && <Badge color='red' >Error en los campos</Badge> }
-                </span> 
-            </div>
+        <Text  className="text-xl font-bold">Create New User</Text>
+        <Divider></Divider>
+            <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+                <TextInput placeholder="Enter your name" name="name" />
+                <TextInput placeholder="Enter your email" name="email" />
+                <TextInput placeholder="Enter your github" name="github" />
+                <Divider></Divider>
+                <Flex justifyContent="end" className="space-x-2 border-t pt-4 mt-2">
+                <Button type="submit" variant="primary">Create User</Button> 
+                    <span className="ml-3">
+                        { result === 'ok' && <Badge color='green' >Guardado correctamente</Badge> }
+                        { result === 'ko' && <Badge color='red' >Error en los campos</Badge> }
+                    </span> 
+                </Flex>
             
-        </form>
+            </form>
+        
         
         
   </Card>

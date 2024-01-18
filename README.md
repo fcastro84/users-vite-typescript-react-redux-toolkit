@@ -19,7 +19,7 @@ $ yarn add sonner
 /** @type {import('tailwindcss').Config} */
 
 const colors = require("tailwindcss/colors");
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -49,6 +49,3 @@ module.exports = {
 - [redux-toolkit](https://redux-toolkit.js.org/introduction/getting-started)
 - [react-redux](https://es.redux.js.org/docs/introduccion/)
 - [sonner](https://sonner.emilkowal.ski/)
-
-
-
